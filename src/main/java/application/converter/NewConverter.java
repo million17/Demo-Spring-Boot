@@ -12,8 +12,8 @@ public class NewConverter {
     public NewDTO toDTO(New entity){
 
         NewDTO result = new NewDTO();
-        if (result.getId() != null) {
-            result.setId(result.getId());
+        if (entity.getId() != null) {
+            result.setId(entity.getId());
         }
         result.setTitle(entity.getTitle());
         result.setContent(entity.getContent());

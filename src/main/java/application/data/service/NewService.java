@@ -7,9 +7,11 @@ import application.data.repository.CategoryRepository;
 import application.data.repository.NewRepository;
 import application.model.dto.NewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -26,6 +28,21 @@ public class NewService {
     @Transactional
     public void addListNews(List<New> newList ){
         newRepository.save(newList);
+    }
+
+    public List<NewDTO> getAllNews(Pageable pageable){
+        List<NewDTO> result = new ArrayList<>();
+        List<New> newList = newRepository.findAll(pageable).getContent();
+        for (New news : newList) {
+            NewDTO newDTO = newConverter.toDTO(news);
+            result.add(newDTO);
+        }
+
+        return result;
+    }
+
+    public int totalItem() {
+        return (int) newRepository.count();
     }
 
     @Transactional
