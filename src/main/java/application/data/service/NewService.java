@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class NewService {
@@ -21,6 +22,11 @@ public class NewService {
 
     @Autowired
     private NewConverter newConverter;
+
+    @Transactional
+    public void addListNews(List<New> newList ){
+        newRepository.save(newList);
+    }
 
     @Transactional
     public NewDTO save(NewDTO newDTO) {
