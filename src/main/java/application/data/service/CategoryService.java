@@ -17,6 +17,7 @@ public class CategoryService {
     public List<Category> getAllCategory(){
         try {
             return categoryRepository.findAll();
+            //get All Category
         } catch (Exception e) {
             e.printStackTrace();
             return new ArrayList<>();

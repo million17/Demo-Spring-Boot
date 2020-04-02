@@ -25,12 +25,12 @@ public class HomeApiController {
 
     @GetMapping("/fake")
     public ResponseEntity<String> fake() {
-        List<Category> categoryList = categoryService.getAllCategory();
-        List<New> newList = new ArrayList<>();
-        Random random = new Random();
+        List<Category> categoryList = categoryService.getAllCategory();//getAllCategory
+        List<New> newList = new ArrayList<>();//Create List New
+        Random random = new Random();//Random
         for(long i = 1 ; i<= 3; i++){
             New news = new New();
-            news.setTitle("Titile " + i);
+            news.setTitle("Title " + i);
             news.setContent("Content " + i);
             news.setThumbnail("Thumbnail " + i);
             news.setShortDesc("Short Description " + i);
