@@ -31,7 +31,7 @@ public class NewApiController {
         List<Category> categoryList = categoryService.getAllCategory();//getAllCategory
         List<New> newList = new ArrayList<>();//Create List New
         Random random = new Random();//Random
-        for (long i = 1; i <= 3; i++) {
+        for (long i = 1; i <= 10; i++) {
             New news = new New();
             news.setTitle("Title " + i);
             news.setContent("Content " + i);
